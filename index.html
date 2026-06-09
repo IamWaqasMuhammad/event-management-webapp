@@ -1,74 +1,105 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Event Horizon</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
-</head>
-<body>
-
-  <!-- HEADER -->
-  <header>
-    <div class="header-inner">
-      <div class="logo">
-        <span class="logo-icon">◈</span>
-        <h1>Event Horizon - Event Management</h1>
-      </div>
-      <p class="tagline">Manage Your Moments</p>
-    </div>
-    <div class="header-stripe"></div>
-  </header>
-
-  <!-- MAIN -->
-  <main>
-
-    <!-- ADD EVENT FORM -->
-    <section class="form-section">
-      <h2 class="section-title">Add New Event</h2>
-      <div class="form-card">
-        <div class="form-group">
-          <label for="eventName">Event Name</label>
-          <input type="text" id="eventName" placeholder="e.g. Tech Conference 2025" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Horizon</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="header-inner">
+        <div class="header-left">
+          <div class="logo">
+            <span class="logo-icon">◈</span>
+            <div class="logo-text">
+              <h1>Event Horizon</h1>
+              <p class="tagline">Manage Your Moments</p>
+            </div>
+          </div>
         </div>
-        <div class="form-group">
-          <label for="eventDate">Event Date</label>
-          <input type="date" id="eventDate" />
+        <div class="header-right">
+          <div class="header-stat">
+            <span class="stat-num" id="headerCount">0</span>
+            <span class="stat-label">Events</span>
+          </div>
+          <div class="header-divider"></div>
+          <div class="search-wrap">
+            <span class="search-icon">⌕</span>
+            <input type="text" id="searchInput" placeholder="Search events…" />
+          </div>
         </div>
-        <div class="form-group">
-          <label for="eventDesc">Event Description</label>
-          <textarea id="eventDesc" rows="3" placeholder="Describe the event..."></textarea>
+      </div>
+      <div class="header-stripe"></div>
+    </header>
+
+    <main>
+      <section class="form-section">
+        <h2 class="section-title">
+          <span class="title-icon">✦</span> Add New Event
+        </h2>
+        <div class="form-card">
+          <div class="form-group">
+            <label for="eventName">Event Name</label>
+            <input
+              type="text"
+              id="eventName"
+              placeholder="e.g. Tech Conference 2025"
+            />
+          </div>
+          <div class="form-group">
+            <label for="eventDate">Event Date</label>
+            <input type="date" id="eventDate" />
+          </div>
+          <div class="form-group full-width">
+            <label for="eventDesc">Description</label>
+            <textarea
+              id="eventDesc"
+              rows="3"
+              placeholder="What's this event about?"
+            ></textarea>
+          </div>
+          <div id="formWarning" class="warning hidden">
+            ⚠ Please fill in all fields before adding.
+          </div>
+          <button id="addEventBtn" class="btn-add">
+            <span class="btn-plus">+</span> Add Event
+          </button>
         </div>
-        <div id="formWarning" class="warning hidden">⚠ All fields are required.</div>
-        <button id="addEventBtn" class="btn-add">+ Add Event</button>
+      </section>
+
+      <section class="events-section">
+        <div class="events-header">
+          <h2 class="section-title">
+            <span class="title-icon">◇</span> Events
+            <span id="eventCount" class="count-badge">0</span>
+          </h2>
+        </div>
+        <div id="eventList" class="event-grid"></div>
+        <div id="noEvents" class="no-events hidden">
+          <span class="no-events-icon">◈</span>
+          <p>No events found</p>
+          <span class="no-events-sub"
+            >Add one above or try a different search</span
+          >
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-inner">
+        <p>Designed by <span class="footer-name">Waqas Muhammad</span></p>
+        <p class="footer-copy">
+          &copy; <span id="footerYear"></span> Event Horizon. All rights
+          reserved.
+        </p>
       </div>
-    </section>
+    </footer>
 
-    <!-- SEARCH BAR -->
-    <section class="search-section">
-      <div class="search-wrap">
-        <span class="search-icon">⌕</span>
-        <input type="text" id="searchInput" placeholder="Search events by name or date..." />
-      </div>
-    </section>
-
-    <!-- EVENTS LIST -->
-    <section class="events-section">
-      <h2 class="section-title">Upcoming Events <span id="eventCount" class="count-badge">0</span></h2>
-      <div id="eventList" class="event-grid">
-        <!-- Events rendered by JS -->
-      </div>
-      <div id="noEvents" class="no-events hidden">No events found.</div>
-    </section>
-
-  </main>
-
-  <!-- FOOTER -->
-  <footer>
-    <p>Designed &amp; Developed by <span class="footer-name">Waqas Muhammad</span> &nbsp;|&nbsp; &copy; <span id="footerYear"></span> Event Horizon</p>
-  </footer>
-
-  <script src="script.js"></script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
